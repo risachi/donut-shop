@@ -5,14 +5,18 @@ var DonutShop = function(name, minCustomers, maxCustomers, avgDonutsPerCustomer,
   this.avgDonutsPerCustomer = avgDonutsPerCustomer;
   this.numHoursOpen = numHoursOpen;
 
+  this.dailyCustomers = Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1)) + this.minCustomers;
+
+  this.soldToday = Math.floor(this.dailyCustomers * this.avgDonutsPerCustomer);
+
   this.toTableRow = function() {
     var tableRow = "<tr><td>" + this.shopName + "</td>";
-    tableRow += "<td class='numeric'>" + this.minCustomers + "</td>";
-    tableRow += "<td class='numeric'>" + this.maxCustomers + "</td>";
-    tableRow += "<td class='numeric'>" + this.avgDonutsPerCustomer + "</td>"
-    tableRow += "<td class='numeric'>" + this.numHoursOpen + "</td></tr>";
+    tableRow += "<td class='numeric'>" + this.dailyCustomers + "</td>";
+    tableRow += "<td class='numeric'>" + this.avgDonutsPerCustomer + "</td>";
+    tableRow += "<td class='numeric'>" + this.numHoursOpen + "</td>";
+    tableRow += "<td class='numeric'>" + this.soldToday + "</td></tr>";
     return tableRow;
-  }
+  };
 };
 
 var shops = [
@@ -26,5 +30,5 @@ var shops = [
 var printToTable = function() {
   for (var index = 0; index < shops.length; index++) {
 		document.write(shops[index].toTableRow());
-	};
-}
+	}
+};
