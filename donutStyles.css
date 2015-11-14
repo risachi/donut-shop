@@ -1,3 +1,13 @@
+#extraSpacing {
+  height: 70px;
+}
+
+#topLevel {
+  padding: 10px;
+  text-align: center;
+  font-size: 200%;
+}
+
 #veryBottom {
   position: fixed;
   bottom: 0;
@@ -12,17 +22,32 @@
   background-color: #453a21;
 }
 
-/*body {
-  background-image: linear-gradient( rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) ), url("jelly-cream-donut-background.gif");
+.subHeader {
+  padding: 3px;
+  width: 150px;
+  border-bottom-color: #DCC184;
+  border-bottom-width: medium;;
+}
+
+.tableData:nth-child(even)  {
+  background-color: rgba(220, 193, 132, .9);
+}
+
+.numeric {
+  text-align: center;
+}
+
+body {
+  background-image: linear-gradient( rgba(0, 0, 0, .1), rgba(0, 0, 0, .1) ), url("jelly-cream-donut-background.gif");
   font-family: 'Comfortaa', cursive;
-}*/
+}
 
 h1 {
   margin: 0;
   background-color: #F296AA;
   color: #453a21;
   text-align: center;
-  /*text-shadow: -1px 0 #71db71, 0 1px #71db71, 1px 0 #71db71, 0 -1px #71db71;*/
+  text-shadow: -5px 0 5px #FECDD8, 0 5px 5px #FECDD8, 5px 0 5px #FECDD8, 0 -5px 5px #FECDD8;
   font-size: 500%;
   font-family: 'Oleo Script', cursive;
 }
@@ -35,4 +60,17 @@ h3 {
   /*text-shadow: -1px 0 #453a21, 0 1px #453a21, 1px 0 #453a21, 0 -1px #453a21;*/
   font-size: 100%;
   font-family: 'Corben';
+}
+
+table {
+  border: 3px solid #685731;
+  border-collapse: collapse;
+  margin: auto;
+  background-color: rgba(255, 228, 170, .9);
+}
+
+td {
+  padding: 10px;
+  margin:0;
+  border: 0;
 }
