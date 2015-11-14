@@ -6,7 +6,7 @@ var DonutShop = function(name, minCustomers, maxCustomers, avgDonutsPerCustomer,
   this.numHoursOpen = numHoursOpen;
 
   this.toTableRow = function() {
-    var tableRow = "<tr class='tableData'><td>" + this.shopName + "</td>";
+    var tableRow = "<tr><td>" + this.shopName + "</td>";
     tableRow += "<td class='numeric'>" + this.minCustomers + "</td>";
     tableRow += "<td class='numeric'>" + this.maxCustomers + "</td>";
     tableRow += "<td class='numeric'>" + this.avgDonutsPerCustomer + "</td>"

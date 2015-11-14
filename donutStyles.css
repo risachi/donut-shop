@@ -25,8 +25,6 @@
 .subHeader {
   padding: 3px;
   width: 150px;
-  border-bottom-color: #DCC184;
-  border-bottom-width: medium;;
 }
 
 .tableData:nth-child(even)  {
@@ -38,6 +36,8 @@
 }
 
 body {
+  margin: 0;
+  margin-top: 20px;
   background-image: linear-gradient( rgba(0, 0, 0, .1), rgba(0, 0, 0, .1) ), url("jelly-cream-donut-background.gif");
   font-family: 'Comfortaa', cursive;
 }
