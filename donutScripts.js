@@ -1,21 +1,35 @@
-var DonutShop = function(name, minCustomers, maxCustomers, avgDonutsPerCustomer, numHoursOpen) {
+var DonutShop = function(name, minCustDay, maxCustDay, avgDonutsPerCustomer, numHoursOpen) {
   this.shopName = name;
-  this.minCustomers = minCustomers;
-  this.maxCustomers = maxCustomers;
+  this.minCustDay = minCustDay;
+  this.maxCustDay = maxCustDay;
   this.avgDonutsPerCustomer = avgDonutsPerCustomer;
   this.numHoursOpen = numHoursOpen;
 
-  this.dailyCustomers = Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1)) + this.minCustomers;
+  this.minCustHour = Math.floor(this.minCustDay / this.numHoursOpen);
+  this.maxCustHour = Math.floor(this.maxCustDay / this.numHoursOpen);
 
-  this.soldToday = Math.floor(this.dailyCustomers * this.avgDonutsPerCustomer);
+  this.hourlyCustomers = function() {
+    return Math.floor(Math.random() * (this.maxCustHour - this.minCustHour + 1)) + this.minCustHour;
+  };
 
-  this.toTableRow = function() {
-    var tableRow = "<tr><td>" + this.shopName + "</td>";
-    tableRow += "<td class='numeric'>" + this.dailyCustomers + "</td>";
-    tableRow += "<td class='numeric'>" + this.avgDonutsPerCustomer + "</td>";
-    tableRow += "<td class='numeric'>" + this.numHoursOpen + "</td>";
-    tableRow += "<td class='numeric'>" + this.soldToday + "</td></tr>";
-    return tableRow;
+  // this.dailyCustomers = Math.floor(Math.random() * (this.maxCustDay - this.minCustDay + 1)) + this.minCustDay;
+
+  // this.soldToday = Math.floor(this.dailyCustomers * this.avgDonutsPerCustomer);
+
+  this.toTable = function() {
+    var tableRows = "<tr><th id=topLevel colspan='5'>" + this.shopName + "</th></tr>";
+    tableRows += "<tr><th class=subHeader>" + "Hour" + "</th>";
+    tableRows += "<th class=subHeader>" + "# of Customers" + "</th>";
+    tableRows += "<th class=subHeader>" + "# of Donuts" + "</th></tr>";
+
+    for (i = 0; i < this.numHoursOpen; i++) {
+      var currentCustomerCount = this.hourlyCustomers();
+      var soldHourly = Math.floor(currentCustomerCount * this.avgDonutsPerCustomer);
+      tableRows += "<tr><td class='numeric'>" + (i + 1) + "</td>";
+      tableRows += "<td class='numeric'>" + currentCustomerCount + "</td>";
+      tableRows += "<td class='numeric'>" + soldHourly + "</td></tr>";
+    }
+    return tableRows;
   };
 };
 
@@ -29,6 +43,6 @@ var shops = [
 
 var printToTable = function() {
   for (var index = 0; index < shops.length; index++) {
-		document.write(shops[index].toTableRow());
+		document.write(shops[index].toTable());
 	}
 };
