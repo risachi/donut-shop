@@ -17,18 +17,31 @@ var DonutShop = function(name, minCustDay, maxCustDay, avgDonutsPerCustomer, num
   // this.soldToday = Math.floor(this.dailyCustomers * this.avgDonutsPerCustomer);
 
   this.toTable = function() {
-    var tableRows = "<tr><th id=topLevel colspan='5'>" + this.shopName + "</th></tr>";
+    var tableRows ="<table><tr><th id=topLevel colspan='5'>" + this.shopName + "</th></tr>";
     tableRows += "<tr><th class=subHeader>" + "Hour" + "</th>";
     tableRows += "<th class=subHeader>" + "# of Customers" + "</th>";
     tableRows += "<th class=subHeader>" + "# of Donuts" + "</th></tr>";
 
+    var totalCustomers = 0;
+    var totalDonuts = 0;
+
     for (i = 0; i < this.numHoursOpen; i++) {
       var currentCustomerCount = this.hourlyCustomers();
       var soldHourly = Math.floor(currentCustomerCount * this.avgDonutsPerCustomer);
+      totalCustomers += currentCustomerCount;
+      totalDonuts += soldHourly;
+
       tableRows += "<tr><td class='numeric'>" + (i + 1) + "</td>";
       tableRows += "<td class='numeric'>" + currentCustomerCount + "</td>";
       tableRows += "<td class='numeric'>" + soldHourly + "</td></tr>";
     }
+
+    tableRows += "<tr id='totals'><td class='lastRow'>" + "Total" + "</td>";
+    tableRows += "<td class='lastRow'>" + totalCustomers + "</td>";
+    tableRows += "<td class='lastRow'>" + totalDonuts + "</td></tr>";
+
+    tableRows += "</table><div id=extraSpacing></div>";
+
     return tableRows;
   };
 };

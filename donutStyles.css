@@ -8,6 +8,13 @@
   font-size: 200%;
 }
 
+#totals {
+  border-top: 2px solid #453a21;
+  text-align: center;
+  font-size: 125%;
+  font-weight: bold;
+}
+
 #veryBottom {
   position: fixed;
   bottom: 0;
@@ -27,12 +34,13 @@
   width: 150px;
 }
 
-.tableData:nth-child(even)  {
-  background-color: rgba(220, 193, 132, .9);
-}
-
 .numeric {
   text-align: center;
+}
+
+.lastRow {
+  padding: 5px;
+  border-top: 3px solid #453a21;
 }
 
 body {
@@ -64,13 +72,17 @@ h3 {
 
 table {
   border: 3px solid #685731;
-  border-collapse: collapse;
+  border-spacing: 0;
   margin: auto;
   background-color: rgba(255, 228, 170, .9);
 }
 
 td {
-  padding: 10px;
-  margin:0;
+  padding: 2px;
+  margin: 0;
   border: 0;
+}
+
+tr:nth-child(even)  {
+  background-color: rgba(220, 193, 132, .9);
 }
