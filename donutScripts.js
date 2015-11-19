@@ -40,7 +40,8 @@ var DonutShop = function(name, minCustDay, maxCustDay, avgDonutsPerCustomer, num
     tableRows += "<td class='lastRow'>" + totalCustomers + "</td>";
     tableRows += "<td class='lastRow'>" + totalDonuts + "</td></tr>";
 
-    tableRows += "</table><div id=extraSpacing></div>";
+    tableRows += "</table>";
+    // <div id=extraSpacing></div>";
 
     return tableRows;
   };
@@ -80,8 +81,10 @@ var printToTable = function() {
 var printButtons = function () {
   document.write(buttons());
 
-  $( '#button-0' ).click(function() {
+  $( 'button' ).click(function(event) {
+    var buttonId = event.target.id;
+    var shopId = buttonId.slice(7);
     hideAllShops();
-    showOneShop(0);
+    showOneShop(shopId);
   });
 };

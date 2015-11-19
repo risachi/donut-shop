@@ -43,7 +43,7 @@ tr:nth-child(even)  {
 }
 
 table.shop {
-  /*display: none;*/
+  display: none;
 }
 
 .ribbon {
