@@ -86,3 +86,7 @@ td {
 tr:nth-child(even)  {
   background-color: rgba(220, 193, 132, .9);
 }
+
+table.shop {
+  display: none;
+}

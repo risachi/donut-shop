@@ -16,8 +16,8 @@ var DonutShop = function(name, minCustDay, maxCustDay, avgDonutsPerCustomer, num
 
   // this.soldToday = Math.floor(this.dailyCustomers * this.avgDonutsPerCustomer);
 
-  this.toTable = function() {
-    var tableRows ="<table><tr><th id=topLevel colspan='5'>" + this.shopName + "</th></tr>";
+  this.toTable = function(shopId) {
+    var tableRows ="<table id='table-" + shopId + "' class='shop'><tr><th id=topLevel colspan='5'>" + this.shopName + "</th></tr>";
     tableRows += "<tr><th class=subHeader>" + "Hour" + "</th>";
     tableRows += "<th class=subHeader>" + "# of Customers" + "</th>";
     tableRows += "<th class=subHeader>" + "# of Donuts" + "</th></tr>";
@@ -63,8 +63,8 @@ var buttons = function () {
 };
 
 var printToTable = function() {
-  $.each(shops, function( _, shop ) {
-    document.write(shop.toTable());
+  $.each(shops, function( i, shop ) {
+    document.write(shop.toTable(i));
   });
 };
 
