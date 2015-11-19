@@ -54,8 +54,20 @@ var shops = [
   new DonutShop("Sesame Donuts", 8, 58, 3.75, 24)
 ];
 
+var buttons = function () {
+  result = "";
+  $.each(shops, function( i, shop ) {
+    result += '<button type="button" id="button-' + i + '">' + shop.shopName + '</button><br>';
+  });
+  return result;
+};
+
 var printToTable = function() {
   $.each(shops, function( _, shop ) {
     document.write(shop.toTable());
   });
+};
+
+var printButtons = function () {
+  document.write(buttons());
 };
