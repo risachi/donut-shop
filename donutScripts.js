@@ -1,4 +1,4 @@
-var DELAY = 100;
+var DELAY = 150;
 
 var DonutShop = function(name, minCustDay, maxCustDay, avgDonutsPerCustomer, numHoursOpen) {
   this.shopName = name;
@@ -14,15 +14,11 @@ var DonutShop = function(name, minCustDay, maxCustDay, avgDonutsPerCustomer, num
     return Math.floor(Math.random() * (this.maxCustHour - this.minCustHour + 1)) + this.minCustHour;
   };
 
-  // this.dailyCustomers = Math.floor(Math.random() * (this.maxCustDay - this.minCustDay + 1)) + this.minCustDay;
-
-  // this.soldToday = Math.floor(this.dailyCustomers * this.avgDonutsPerCustomer);
-
   this.toTable = function(shopId) {
     var tableRows ="<table id='table-" + shopId + "' class='shop'><tr><th id=topLevel colspan='5'>" + this.shopName + "</th></tr>";
-    tableRows += "<tr><th class=subHeader>" + "Hour" + "</th>";
-    tableRows += "<th class=subHeader>" + "# of Customers" + "</th>";
-    tableRows += "<th class=subHeader>" + "# of Donuts" + "</th></tr>";
+    tableRows += "<tr><th class=subHeader>" + "Hour" + "</th>" +
+                 "<th class=subHeader>" + "# of Customers" + "</th>" +
+                 "<th class=subHeader>" + "# of Donuts" + "</th></tr>";
 
     var totalCustomers = 0;
     var totalDonuts = 0;
@@ -33,18 +29,16 @@ var DonutShop = function(name, minCustDay, maxCustDay, avgDonutsPerCustomer, num
       totalCustomers += currentCustomerCount;
       totalDonuts += soldHourly;
 
-      tableRows += "<tr><td class='numeric'>" + (i + 1) + "</td>";
-      tableRows += "<td class='numeric'>" + currentCustomerCount + "</td>";
-      tableRows += "<td class='numeric'>" + soldHourly + "</td></tr>";
+      tableRows += "<tr><td class='numeric'>" + (i + 1) + "</td>" +
+                   "<td class='numeric'>" + currentCustomerCount + "</td>" +
+                   "<td class='numeric'>" + soldHourly + "</td></tr>";
     }
 
-    tableRows += "<tr id='totals'><td class='lastRow'>" + "Total" + "</td>";
-    tableRows += "<td class='lastRow'>" + totalCustomers + "</td>";
-    tableRows += "<td class='lastRow'>" + totalDonuts + "</td></tr>";
+    tableRows += "<tr id='totals'><td class='lastRow'>" + "Total" + "</td>" +
+                 "<td class='lastRow'>" + totalCustomers + "</td>" +
+                 "<td class='lastRow'>" + totalDonuts + "</td></tr>" +
 
-    tableRows += "</table>";
-    // <div id=extraSpacing></div>";
-
+                 "</table>";
     return tableRows;
   };
 };
