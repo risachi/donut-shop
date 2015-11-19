@@ -55,7 +55,7 @@ var shops = [
 ];
 
 var printToTable = function() {
-  for (var index = 0; index < shops.length; index++) {
-		document.write(shops[index].toTable());
-	}
+  $.each(shops, function( _, shop ) {
+    document.write(shop.toTable());
+  });
 };
