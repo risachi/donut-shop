@@ -81,5 +81,7 @@ var printButtons = function () {
     var shopId = buttonId.slice(7);
     hideShops();
     showShop(shopId);
+    $('button').removeClass("pure-button-disabled");
+    $('#'+buttonId).addClass("pure-button-disabled");
   });
 };
