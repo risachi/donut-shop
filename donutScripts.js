@@ -57,9 +57,18 @@ var shops = [
 var buttons = function () {
   result = "";
   $.each(shops, function( i, shop ) {
-    result += '<button type="button" id="button-' + i + '">' + shop.shopName + '</button><br>';
+    result += '<button type="button" class="buttonStyling pure-button" id="button-' + i + '">' + shop.shopName + '</button><br>';
   });
   return result;
+};
+
+
+var hideAllShops = function() {
+  $( "table" ).hide();
+};
+
+var showOneShop = function(shopId) {
+  $( "#table-" + shopId ).show();
 };
 
 var printToTable = function() {
@@ -70,4 +79,9 @@ var printToTable = function() {
 
 var printButtons = function () {
   document.write(buttons());
+
+  $( '#button-0' ).click(function() {
+    hideAllShops();
+    showOneShop(0);
+  });
 };
