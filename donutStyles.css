@@ -27,7 +27,7 @@ h3 {
 
 table {
   border: 3px solid #685731;
-  border-spacing: 0;
+  border-collapse: inherit;
   margin: auto;
   background-color: rgba(255, 228, 170, .9);
 }
@@ -96,4 +96,9 @@ table.shop {
   bottom: 0;
   width: 100%;
   text-align: center;
+}
+
+#buttonList {
+  position: absolute;
+  z-index: 200;
 }

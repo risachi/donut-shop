@@ -69,7 +69,7 @@ var hideAllShops = function() {
 };
 
 var showOneShop = function(shopId) {
-  $( "#table-" + shopId ).show();
+  $( "#table-" + shopId ).fadeIn(1000);
 };
 
 var printToTable = function() {
