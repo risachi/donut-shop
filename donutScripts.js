@@ -1,3 +1,5 @@
+var DELAY = 100;
+
 var DonutShop = function(name, minCustDay, maxCustDay, avgDonutsPerCustomer, numHoursOpen) {
   this.shopName = name;
   this.minCustDay = minCustDay;
@@ -65,11 +67,11 @@ var buttons = function () {
 
 
 var hideAllShops = function() {
-  $( "table" ).hide();
+  $( "table" ).fadeOut(DELAY);
 };
 
 var showOneShop = function(shopId) {
-  $( "#table-" + shopId ).fadeIn(1000);
+  $( "#table-" + shopId ).delay(DELAY).fadeIn(DELAY);
 };
 
 var printToTable = function() {
