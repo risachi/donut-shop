@@ -15,7 +15,7 @@ var DonutShop = function(name, minCustDay, maxCustDay, avgDonutsPerCustomer, num
   };
 
   this.toTable = function(shopId) {
-    var tableRows ="<table id='table-" + shopId + "' class='shop'><tr><th id=topLevel colspan='5'>" + this.shopName + "</th></tr>";
+    var tableRows ="<table id=table-" + shopId + " class=shop><tr><th id=topLevel colspan=5>" + this.shopName + "</th></tr>";
     tableRows += "<tr><th class=subHeader>" + "Hour" + "</th>" +
                  "<th class=subHeader>" + "# of Customers" + "</th>" +
                  "<th class=subHeader>" + "# of Donuts" + "</th></tr>";
@@ -29,14 +29,14 @@ var DonutShop = function(name, minCustDay, maxCustDay, avgDonutsPerCustomer, num
       totalCustomers += currentCustomerCount;
       totalDonuts += soldHourly;
 
-      tableRows += "<tr><td class='numeric'>" + (i + 1) + "</td>" +
-                   "<td class='numeric'>" + currentCustomerCount + "</td>" +
-                   "<td class='numeric'>" + soldHourly + "</td></tr>";
+      tableRows += "<tr><td class=numeric>" + (i + 1) + "</td>" +
+                   "<td class=numeric>" + currentCustomerCount + "</td>" +
+                   "<td class=numeric>" + soldHourly + "</td></tr>";
     }
 
-    tableRows += "<tr id='totals'><td class='lastRow'>" + "Total" + "</td>" +
-                 "<td class='lastRow'>" + totalCustomers + "</td>" +
-                 "<td class='lastRow'>" + totalDonuts + "</td></tr>" +
+    tableRows += "<tr id=totals><td class=lastRow>" + "Total" + "</td>" +
+                 "<td class=lastRow>" + totalCustomers + "</td>" +
+                 "<td class=lastRow>" + totalDonuts + "</td></tr>" +
 
                  "</table>";
     return tableRows;
@@ -54,21 +54,20 @@ var shops = [
 var buttons = function () {
   result = "";
   $.each(shops, function( i, shop ) {
-    result += '<button type="button" class="buttonStyling pure-button" id="button-' + i + '">' + shop.shopName + '</button><br>';
+    result += '<button type=button class="buttonStyling pure-button" id=button-' + i + '>' + shop.shopName + '</button><br>';
   });
   return result;
 };
 
-
-var hideAllShops = function() {
+var hideShops = function() {
   $( "table" ).fadeOut(DELAY);
 };
 
-var showOneShop = function(shopId) {
+var showShop = function(shopId) {
   $( "#table-" + shopId ).delay(DELAY).fadeIn(DELAY);
 };
 
-var printToTable = function() {
+var printShops = function() {
   $.each(shops, function( i, shop ) {
     document.write(shop.toTable(i));
   });
@@ -80,7 +79,7 @@ var printButtons = function () {
   $( 'button' ).click(function(event) {
     var buttonId = event.target.id;
     var shopId = buttonId.slice(7);
-    hideAllShops();
-    showOneShop(shopId);
+    hideShops();
+    showShop(shopId);
   });
 };
