@@ -36,6 +36,7 @@ var DonutShop = function(name, minCustDay, maxCustDay, avgDonutsPerCustomer, num
                  "<td class=lastRow>" + totalDonuts + "</td></tr>" +
 
                  "</table>";
+
     return tableRows;
   };
 };

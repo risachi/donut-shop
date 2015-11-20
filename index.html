@@ -10,6 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script src="donutScripts.js"></script>
+    <script src="donutForm.js"></script>
 
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <title>Premium Guide to YOUR Donut Shops</title>
@@ -31,6 +32,34 @@
         printButtons()
       </script>
     </div>
+
+    <form class="pure-form pure-form-aligned">
+      <fieldset>
+        <div class="pure-control-group">
+          <label for="name">Number of Hours Open:</label>
+          <input id="name" type="number" placeholder="Username" min=1 max=24>
+        </div>
+
+        <div class="pure-control-group">
+          <label for="password">Avg Donuts per Customer:</label>
+          <input id="password" type="number" placeholder="Password" min=1 max=99>
+        </div>
+
+        <div class="pure-control-group">
+          <label for="email">Min Customers per Hour:</label>
+          <input id="email" type="number" placeholder="Email Address" min=0 max=99>
+        </div>
+
+        <div class="pure-control-group">
+          <label for="foo">Max Customers per Hour:</label>
+          <input id="foo" type="number" placeholder="Enter something" min=0 max=00>
+        </div>
+
+        <div class="pure-controls">
+          <button type="submit" class="pure-button pure-button-primary">Submit</button>
+        </div>
+      </fieldset>
+    </form>
 
 		<script>
       printShops()

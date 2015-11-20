@@ -101,3 +101,16 @@ table.shop {
   position: absolute;
   z-index: 200;
 }
+
+/*label {
+  display: inline-block;
+  float: left;
+  clear: left;
+  width: 50%;
+  text-align: right;
+}
+
+input {
+  display: inline-block;
+  float: left;
+}*/
