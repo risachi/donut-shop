@@ -7,11 +7,8 @@ var DonutShop = function(name, minCustDay, maxCustDay, avgDonutsPerCustomer, num
   this.avgDonutsPerCustomer = avgDonutsPerCustomer;
   this.numHoursOpen = numHoursOpen;
 
-  this.minCustHour = Math.floor(this.minCustDay / this.numHoursOpen);
-  this.maxCustHour = Math.floor(this.maxCustDay / this.numHoursOpen);
-
   this.hourlyCustomers = function() {
-    return Math.floor(Math.random() * (this.maxCustHour - this.minCustHour + 1)) + this.minCustHour;
+    return Math.floor(Math.random() * (this.maxCustDay - this.minCustDay + 1)) + this.minCustDay;
   };
 
   this.toTable = function(shopId) {
