@@ -1,14 +1,14 @@
 var DELAY = 150;
 
-var DonutShop = function(name, minCustDay, maxCustDay, avgDonutsPerCustomer, numHoursOpen) {
+function DonutShop(name, minCustHour, maxCustHour, avgDonutsPerCustomer, numHoursOpen) {
   this.shopName = name;
-  this.minCustDay = minCustDay;
-  this.maxCustDay = maxCustDay;
+  this.minCustHour = minCustHour;
+  this.maxCustHour = maxCustHour;
   this.avgDonutsPerCustomer = avgDonutsPerCustomer;
   this.numHoursOpen = numHoursOpen;
 
   this.hourlyCustomers = function() {
-    return Math.floor(Math.random() * (this.maxCustDay - this.minCustDay + 1)) + this.minCustDay;
+    return Math.floor(Math.random() * (this.maxCustHour - this.minCustHour + 1)) + this.minCustHour;
   };
 
   this.toTable = function(shopId) {
@@ -39,7 +39,7 @@ var DonutShop = function(name, minCustDay, maxCustDay, avgDonutsPerCustomer, num
 
     return tableRows;
   };
-};
+}
 
 var shops = [
   new DonutShop("Blue Star Donuts", 8, 43, 4.5, 11),
@@ -49,29 +49,29 @@ var shops = [
   new DonutShop("Sesame Donuts", 8, 58, 3.75, 24)
 ];
 
-var buttons = function () {
+function buttons() {
   result = "";
   $.each(shops, function( i, shop ) {
     result += '<button type=button class="buttonStyling pure-button" id=button-' + i + '>' + shop.shopName + '</button><br>';
   });
   return result;
-};
+}
 
-var hideShops = function() {
+function hideShops() {
   $( "table" ).fadeOut(DELAY);
-};
+}
 
-var showShop = function(shopId) {
+function showShop(shopId) {
   $( "#table-" + shopId ).delay(DELAY).fadeIn(DELAY);
-};
+}
 
-var printShops = function() {
+function printShops() {
   $.each(shops, function( i, shop ) {
     document.write(shop.toTable(i));
   });
-};
+}
 
-var printButtons = function () {
+function printButtons() {
   document.write(buttons());
 
   $( 'button' ).click(function(event) {
@@ -82,4 +82,4 @@ var printButtons = function () {
     $('button').removeClass("pure-button-disabled");
     $('#'+buttonId).addClass("pure-button-disabled");
   });
-};
+}
