@@ -25,7 +25,6 @@ function printButtons() {
   $( 'button' ).click(function(event) {
     var buttonId = event.target.id;
     var shopId = buttonId.slice(7);
-    hideShops();
     showShop(shopId);
     $('button').removeClass("pure-button-disabled");
     $('#'+buttonId).addClass("pure-button-disabled");
@@ -47,12 +46,13 @@ function buttons() {
   return result;
 }
 
+function showShop(shopId) {
+  hideShops();
+  $( "#form-" + shopId ).delay(DELAY).fadeIn(DELAY);
+  $( "#table-" + shopId ).delay(DELAY).fadeIn(DELAY);
+}
+
 function hideShops() {
   $( "form" ).fadeOut(DELAY);
   $( "table" ).fadeOut(DELAY);
-}
-
-function showShop(shopId) {
-  $( "#form-" + shopId ).delay(DELAY).fadeIn(DELAY);
-  $( "#table-" + shopId ).delay(DELAY).fadeIn(DELAY);
 }
