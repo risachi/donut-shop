@@ -24,6 +24,14 @@ h3 {
   font-family: 'Corben';
 }
 
+form {
+  margin: 0 auto;
+  margin-bottom: 2em;
+  width: 50%;
+  background-color: rgba(255, 228, 170, .9);
+  display: none;
+}
+
 table {
   border: 3px solid #685731;
   border-collapse: inherit;
@@ -100,10 +108,4 @@ table.shop {
 #buttonList {
   position: absolute;
   z-index: 200;
-}
-
-form {
-  margin: 0 auto;
-  width: 50%;
-  background-color: rgba(255, 228, 170, .9);
 }

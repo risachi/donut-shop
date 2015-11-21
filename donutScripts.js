@@ -11,6 +11,32 @@ function DonutShop(name, minCustHour, maxCustHour, avgDonutsPerCustomer, numHour
     return Math.floor(Math.random() * (this.maxCustHour - this.minCustHour + 1)) + this.minCustHour;
   };
 
+  this.toForm = function(shopId) {
+    return '<form id=form-' + shopId + ' class="pure-form pure-form-aligned">' +
+           '<fieldset>' +
+           '<div class="pure-control-group">' +
+           '<label for="numHoursOpen">Number of Hours Open:</label>' +
+           '<input id="numHoursOpen" type="number" placeholder="10" min=1 max=24>' +
+           '</div>' +
+
+           '<div class="pure-control-group">' +
+           '<label for="avgDonuts">Avg Donuts per Customer:</label>' +
+           '<input id="avgDonuts" type="number" placeholder="4" min=1 max=99>' +
+           '</div>' +
+
+           '<div class="pure-control-group">' +
+           '<label for="minCust">Min Customers<br>per Hour:</label>' +
+           '<input id="minCust" type="number" placeholder="3" min=0 max=99>' +
+           '</div>' +
+
+           '<div class="pure-control-group">' +
+           '<label for="maxCust">Max Customers<br>per Hour:</label>' +
+           '<input id="maxCust" type="number" placeholder="6" min=0 max=99>' +
+           '</div>' +
+           '</fieldset>' +
+           '</form>';
+  };
+
   this.toTable = function(shopId) {
     this.shopId = shopId;
     var tableRows ="<table id=table-" + shopId + " class=shop><tr><th id=topLevel colspan=5>" + this.shopName + "</th></tr>";
@@ -66,15 +92,18 @@ function buttons() {
 }
 
 function hideShops() {
+  $( "form" ).fadeOut(DELAY);
   $( "table" ).fadeOut(DELAY);
 }
 
 function showShop(shopId) {
+  $( "#form-" + shopId ).delay(DELAY).fadeIn(DELAY);
   $( "#table-" + shopId ).delay(DELAY).fadeIn(DELAY);
 }
 
 function printShops() {
   $.each(shops, function( i, shop ) {
+    document.write(shop.toForm(i));
     document.write(shop.toTable(i));
   });
 }
