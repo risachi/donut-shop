@@ -21,7 +21,7 @@ $(function() {
 });
 
 function printButtons() {
-  $('#buttonList').append( buttons() );
+  $('#buttonList').append( buttonHtml() );
 }
 
 function setupSidebarEvents() {
@@ -45,7 +45,7 @@ function printShops() {
   });
 }
 
-function buttons() {
+function buttonHtml() {
   result = "";
   $.each(shops, function( i, shop ) {
     result += '<button type=button class="buttonStyling pure-button" id=button-' + i + '>' + shop.shopName + '</button><br>';
