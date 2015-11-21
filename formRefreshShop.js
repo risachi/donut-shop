@@ -10,6 +10,6 @@ function displayNewShopValue(e) {
   var shop = shops[ $(el).data('shop-id') ];
   var property = $(el).data('shop-property');
 
-  shop[property] = newValue;
+  shop[property] = parseInt(newValue);
   shop.refresh();
 }

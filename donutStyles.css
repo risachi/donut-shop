@@ -25,9 +25,10 @@ h3 {
 }
 
 form {
+  border: 3px solid #685731;
   margin: 0 auto;
   margin-bottom: 2em;
-  width: 50%;
+  width: 470px;
   background-color: rgba(255, 228, 170, .9);
   display: none;
 }
@@ -36,6 +37,7 @@ table {
   border: 3px solid #685731;
   border-collapse: inherit;
   margin: auto;
+  width: 470px;
   background-color: rgba(255, 228, 170, .9);
 }
 
