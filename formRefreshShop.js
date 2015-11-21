@@ -1,11 +1,8 @@
-$(function() {
-
+function setupEvents() {
   $('input').on('change', function(e) {
     displayNewShopValue(e);
   });
-
-});
-
+}
 
 function displayNewShopValue(e) {
   var el = e.target;
