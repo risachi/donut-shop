@@ -1,10 +1,3 @@
-// pg. 316
-function refreshShop(shopId) {
-  $('#table-' + shopId).replaceWith(shops[shopId].toTable(shopId));
-  $('#table-' + shopId).show();
-}
-
-
 $(function() {
 
   $('#numHoursOpen').on('change', function(e) {

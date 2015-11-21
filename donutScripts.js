@@ -12,6 +12,7 @@ function DonutShop(name, minCustHour, maxCustHour, avgDonutsPerCustomer, numHour
   };
 
   this.toTable = function(shopId) {
+    this.shopId = shopId;
     var tableRows ="<table id=table-" + shopId + " class=shop><tr><th id=topLevel colspan=5>" + this.shopName + "</th></tr>";
     tableRows += "<tr><th class=subHeader>" + "Hour" + "</th>" +
                  "<th class=subHeader>" + "# of Customers" + "</th>" +
@@ -39,6 +40,13 @@ function DonutShop(name, minCustHour, maxCustHour, avgDonutsPerCustomer, numHour
 
     return tableRows;
   };
+
+  // pg. 316
+  this.refresh = function () {
+    $('#table-' + this.shopId).replaceWith(this.toTable(this.shopId));
+    $('#table-' + this.shopId).show();
+  };
+
 }
 
 var shops = [
