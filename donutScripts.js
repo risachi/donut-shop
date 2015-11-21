@@ -1,5 +1,26 @@
 var DELAY = 150;
 
+
+function printButtons() {
+  document.write(buttons());
+
+  $( 'button' ).click(function(event) {
+    var buttonId = event.target.id;
+    var shopId = buttonId.slice(7);
+    hideShops();
+    showShop(shopId);
+    $('button').removeClass("pure-button-disabled");
+    $('#'+buttonId).addClass("pure-button-disabled");
+  });
+}
+
+function printShops() {
+  $.each(shops, function( i, shop ) {
+    document.write(shop.toForm(i));
+    document.write(shop.toTable(i));
+  });
+}
+
 function DonutShop(name, minCustHour, maxCustHour, avgDonutsPerCustomer, numHoursOpen) {
   this.shopName = name;
   this.minCustHour = minCustHour;
@@ -99,24 +120,4 @@ function hideShops() {
 function showShop(shopId) {
   $( "#form-" + shopId ).delay(DELAY).fadeIn(DELAY);
   $( "#table-" + shopId ).delay(DELAY).fadeIn(DELAY);
-}
-
-function printShops() {
-  $.each(shops, function( i, shop ) {
-    document.write(shop.toForm(i));
-    document.write(shop.toTable(i));
-  });
-}
-
-function printButtons() {
-  document.write(buttons());
-
-  $( 'button' ).click(function(event) {
-    var buttonId = event.target.id;
-    var shopId = buttonId.slice(7);
-    hideShops();
-    showShop(shopId);
-    $('button').removeClass("pure-button-disabled");
-    $('#'+buttonId).addClass("pure-button-disabled");
-  });
 }
