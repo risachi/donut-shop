@@ -1,4 +1,4 @@
-function setupEvents() {
+function setupFormEvents() {
   $('input').on('change', function(e) {
     displayNewShopValue(e);
   });

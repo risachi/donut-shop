@@ -16,19 +16,26 @@ var shops = [
 $(function() {
   printButtons();
   printShops();
-  setupEvents();
+  setupFormEvents();
+  setupSidebarEvents();
 });
 
 function printButtons() {
   $('#buttonList').append( buttons() );
+}
 
+function setupSidebarEvents() {
   $( 'button' ).click(function(event) {
     var buttonId = event.target.id;
     var shopId = buttonId.slice(7);
     showShop(shopId);
-    $('button').removeClass("pure-button-disabled");
-    $('#'+buttonId).addClass("pure-button-disabled");
+    disableButton(buttonId);
   });
+}
+
+function disableButton(buttonId) {
+  $('button').removeClass("pure-button-disabled");
+  $('#'+buttonId).addClass("pure-button-disabled");
 }
 
 function printShops() {
