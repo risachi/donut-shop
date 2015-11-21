@@ -1,21 +1,13 @@
-// p.329
-
 $(function() {
 
-  $('#numHoursOpen').on('change', function(e) {
-    alert("it changed to " + e.target.value);
-  });
+  $('input').on('change', function(e) {
+    var el = e.target;
+    var newValue = el.value;
+    var shop = shops[ $(el).data('shop-id') ];
+    var property = $(el).data('shop-property');
 
-  $('#avgDonuts').on('change', function() {
-    alert("it changed again");
-  });
-
-  $('#minCust').on('change', function() {
-
-  });
-
-  $('#maxCust').on('change', function() {
-
+    shop[property] = newValue;
+    shop.refresh();
   });
 
 });

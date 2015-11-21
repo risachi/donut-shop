@@ -16,7 +16,7 @@ function DonutShop(name, minCustHour, maxCustHour, avgDonutsPerCustomer, numHour
            '<fieldset>' +
            '<div class="pure-control-group">' +
            '<label for="numHoursOpen">Number of Hours Open:</label>' +
-           '<input id="numHoursOpen" type="number" placeholder="10" min=1 max=24>' +
+           '<input data-shop-id=' + shopId + ' data-shop-property=numHoursOpen type="number" placeholder="10" min=1 max=24>' +
            '</div>' +
 
            '<div class="pure-control-group">' +
