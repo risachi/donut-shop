@@ -28,11 +28,20 @@
           /*** Change type "column" to "bar", "area", "line" or "pie"***/
           type: "column",
           dataPoints: [{
-            label: "banana",
-            y: 18
+            label: shops[0].shopName,
+            y: shops[0].numHoursOpen
           }, {
-            label: shops[this.shopName],
-            y: 10
+            label: shops[1].shopName,
+            y: shops[1].numHoursOpen
+          }, {
+            label: shops[2].shopName,
+            y: shops[2].numHoursOpen
+          }, {
+            label: shops[3].shopName,
+            y: shops[3].numHoursOpen
+          }, {
+            label: shops[4].shopName,
+            y: shops[4].numHoursOpen
           }]
         }
       ]
@@ -48,8 +57,9 @@
 
   <body>
 
-    <div id=chartContainer></div>
+    <h1>Your Donut Shop Forecaster</h1>
 
+    <div id=chartContainer></div>
 
 		<div id=veryBottom>
       <p>
