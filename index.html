@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Oleo+Script:400,700|Comfortaa:400,700|Corben'>
-    <link rel="stylesheet" type="text/css" href="donutStyles.css">
-    <script type="text/javascript" src="donutScripts.js"></script>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+
+    <link rel='stylesheet'  href='https://fonts.googleapis.com/css?family=Oleo+Script:400,700|Comfortaa:400,700|Corben'>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="donutStyles.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="donutShop.js"></script>
+    <script src="formRefreshShop.js"></script>
+    <script src="donutScripts.js"></script>
+
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <title>Premium Guide to YOUR Donut Shops</title>
   </head>
@@ -11,32 +20,21 @@
   <body>
     <div class=ribbon>
     </div>
+
     <h1>Your Donut Shop Forecaster</h1>
+
     <div class=ribbon>
     </div>
+
     <h3>Peeking through the donut hole</h3>
 
-    <div id=extraSpacing>
+    <div id=buttonList>
     </div>
 
-		<table>
-      <tr>
-        <th id=topLevel colspan="5">Today's Donut Statistics</th>
-      </tr>
-			<tr>
-				<th class=subHeader>Shop</th>
-				<th class=subHeader>Min. Customers</th>
-				<th class=subHeader>Max. Customers</th>
-				<th class=subHeader>Avg. Donuts Per Customer</th>
-        <th class=subHeader>Num. of Hours Open</th>
-			</tr>
-			<script>
-        printToTable()
-			</script>
-		</table>
+    <div id=shopList>
+    </div>
 
-
-    <div id="veryBottom">
+		<div id=veryBottom>
       <p>
         &copy; 2015 Lisa Hackenberger
       </p>

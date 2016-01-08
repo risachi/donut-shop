@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+
+    <link rel='stylesheet'  href='https://fonts.googleapis.com/css?family=Oleo+Script:400,700|Comfortaa:400,700|Corben'>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="donutStyles.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="donutShop.js"></script>
+    <script src="formRefreshShop.js"></script>
+    <script src="donutScripts.js"></script>
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <title>Premium Guide to YOUR Donut Shops</title>
+
+<script type="text/javascript">
+  window.onload = function() {
+    var chart = new CanvasJS.Chart("chartContainer", {
+      title: {
+        text: "Fruits sold in First Quarter"
+      },
+      data: [ //array of dataSeries
+        { //dataSeries object
+
+          /*** Change type "column" to "bar", "area", "line" or "pie"***/
+          type: "column",
+          dataPoints: [{
+            label: shops[0].shopName,
+            y: shops[0].numHoursOpen
+          }, {
+            label: shops[1].shopName,
+            y: shops[1].numHoursOpen
+          }, {
+            label: shops[2].shopName,
+            y: shops[2].numHoursOpen
+          }, {
+            label: shops[3].shopName,
+            y: shops[3].numHoursOpen
+          }, {
+            label: shops[4].shopName,
+            y: shops[4].numHoursOpen
+          }]
+        }
+      ]
+    });
+
+    chart.render();
+  }
+</script>
+<script type="text/javascript" src="jquery.canvasjs.min.js"></script>
+
+
+  </head>
+
+  <body>
+
+    <h1>Your Donut Shop Forecaster</h1>
+
+    <div id=chartContainer></div>
+
+		<div id=veryBottom>
+      <p>
+        &copy; 2015 Lisa Hackenberger
+      </p>
+    </div>
+
+  </body>
+</html>

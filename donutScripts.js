@@ -1,19 +1,7 @@
-var DonutShop = function(name, minCustomers, maxCustomers, avgDonutsPerCustomer, numHoursOpen) {
-  this.shopName = name;
-  this.minCustomers = minCustomers;
-  this.maxCustomers = maxCustomers;
-  this.avgDonutsPerCustomer = avgDonutsPerCustomer;
-  this.numHoursOpen = numHoursOpen;
-
-  this.toTableRow = function() {
-    var tableRow = "<tr><td>" + this.shopName + "</td>";
-    tableRow += "<td class='numeric'>" + this.minCustomers + "</td>";
-    tableRow += "<td class='numeric'>" + this.maxCustomers + "</td>";
-    tableRow += "<td class='numeric'>" + this.avgDonutsPerCustomer + "</td>"
-    tableRow += "<td class='numeric'>" + this.numHoursOpen + "</td></tr>";
-    return tableRow;
-  }
-};
+//
+// Configuration
+//
+var DELAY = 150;
 
 var shops = [
   new DonutShop("Blue Star Donuts", 8, 43, 4.5, 11),
@@ -23,8 +11,55 @@ var shops = [
   new DonutShop("Sesame Donuts", 8, 58, 3.75, 24)
 ];
 
-var printToTable = function() {
-  for (var index = 0; index < shops.length; index++) {
-		document.write(shops[index].toTableRow());
-	};
+
+
+$(function() {
+  printButtons();
+  printShops();
+  setupFormEvents();
+  setupSidebarEvents();
+});
+
+function printButtons() {
+  $('#buttonList').append( buttonHtml() );
+}
+
+function setupSidebarEvents() {
+  $( 'button' ).click(function(event) {
+    var buttonId = event.target.id;
+    var shopId = buttonId.slice(7);
+    showShop(shopId);
+    disableButton(buttonId);
+  });
+}
+
+function disableButton(buttonId) {
+  $('button').removeClass("pure-button-disabled");
+  $('#'+buttonId).addClass("pure-button-disabled");
+}
+
+function printShops() {
+  $.each(shops, function( i, shop ) {
+    $('#shopList').append( shop.toForm(i) );
+    $('#shopList').append( shop.toTable(i) );
+  });
+}
+
+function buttonHtml() {
+  result = "";
+  $.each(shops, function( i, shop ) {
+    result += '<button type=button class="buttonStyling pure-button" id=button-' + i + '>' + shop.shopName + '</button><br>';
+  });
+  return result;
+}
+
+function showShop(shopId) {
+  hideShops();
+  $( "#form-" + shopId ).delay(DELAY).fadeIn(DELAY);
+  $( "#table-" + shopId ).delay(DELAY).fadeIn(DELAY);
+}
+
+function hideShops() {
+  $( "form" ).fadeOut(DELAY);
+  $( "table" ).fadeOut(DELAY);
 }
